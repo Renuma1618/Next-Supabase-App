@@ -24,7 +24,7 @@ interface ProductType {
  const formSchema = yup.object().shape({
   title: yup.string().required("Title is required"),
   content: yup.string().required("Content is required"),
-  cost: yup.string().required("Cost is required"),
+  cost: yup.string().required("Product is required"),
 
 });
 
@@ -33,7 +33,7 @@ export default function DashboardPage(){
 
 
     const[previewImage, setPreviewImage] = useState<string |null>(null);
-    const[products,setProducts] = useState<ProductType[] |null>(null);
+    const[products,setProducts] = useState<ProductType[]>([]);
     const[userId, setUserId] = useState<string | null>(null);
     const[editId, setEditId]=useState<number |null>(null);
 
