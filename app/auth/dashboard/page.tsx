@@ -35,8 +35,8 @@ export default function DashboardPage(){
     const[previewImage, setPreviewImage] = useState<string |null>(null);
     const[products,setProducts] = useState<ProductType[] |null>(null);
     const {setAuthToken,isLoggedIn, setIsLoggedIn, setUserProfile,setIsLaoding} =myAppHook();
-    const[userId, setUserId] = useState<null>(null);
-    const[editId, setEditId]=useState(null);
+    const[userId, setUserId] = useState<string | null>(null);
+    const[editId, setEditId]=useState(string |null);
   
       const router = useRouter();
   
