@@ -18,7 +18,7 @@ interface ProductType {
   title: string;
   content: string;
   cost: string;
-  bannerImage?: string | File | null;
+  banner_image?: string | File | null;
 }
 
  const formSchema = yup.object().shape({
