@@ -8,3 +8,5 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+// Optional: fallback to client-only rendering for dynamic routes
+export const dynamic = "force-dynamic";
