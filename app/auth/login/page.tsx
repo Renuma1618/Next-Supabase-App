@@ -108,7 +108,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-center mt-3">
-          Don't have an account? <a href="/auth/register">Register</a>
+          Dont have an account? <a href="/auth/register">Register</a>
         </p>
       </div>
       <Footer />
