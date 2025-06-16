@@ -9,12 +9,12 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 interface RegisterType {
-  displayName?: string,
-  email: string,
-  phone?: string,
-  gender?: string,
-  password: string,
-  confirmPassword?: string,
+  displayName?: string;
+  email: string;
+  phone?: string;
+  gender?: string;
+  password: string;
+  confirmPassword?: string;
 }
 
 const schema = yup.object().shape({
@@ -23,7 +23,7 @@ const schema = yup.object().shape({
   phone: yup.string().required("Phone number is required"),
   gender: yup
     .string()
-    .required("gender is required")
+    .required("Gender is required")
     .oneOf(["Male", "Female", "Other"]),
   password: yup
     .string()
@@ -34,22 +34,26 @@ const schema = yup.object().shape({
     .required("Confirm Password is required")
     .oneOf([yup.ref("password")], "Passwords must match"),
 });
+
 export default function RegisterPage() {
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<RegisterType>({
     resolver: yupResolver(schema),
   });
+
   const onsubmit = async (formdata: RegisterType) => {
-    //console.log("Form submitted:", formdata);
     const { displayName, email, password, gender, phone } = formdata;
+
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
+         emailRedirectTo: "http://localhost:3000/auth/callback",
         data: {
           displayName,
           gender,
@@ -57,11 +61,12 @@ export default function RegisterPage() {
         },
       },
     });
+
     if (error) {
-      toast.error("Failed to register the user");
+      toast.error("Signup Error:"); 
+      toast.error(`Registration failed: ${error.message}`);
     } else {
       toast.success("User registered successfully");
-      // Optionally redirect to login or home page
       router.push("/auth/login");
     }
   };
@@ -106,6 +111,7 @@ export default function RegisterPage() {
             <div className="col-md-6">
               <label className="form-label">Gender</label>
               <select className="form-control" {...register("gender")}>
+                <option value="">Select</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
