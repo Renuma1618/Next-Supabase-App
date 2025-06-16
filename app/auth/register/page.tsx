@@ -9,13 +9,14 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 interface RegisterType {
-  displayName?: string;
+  displayName: string;
   email: string;
-  phone?: string;
-  gender?: string;
+  phone: string;
+  gender: string;
   password: string;
-  confirmPassword?: string;
+  confirmPassword: string;
 }
+
 
 const schema = yup.object().shape({
   displayName: yup.string().required("Display Name is required"),
