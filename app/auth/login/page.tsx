@@ -93,11 +93,7 @@ export default function LoginPage() {
     }
   }, []);
 
-  {emailConfirmed && (
-  <div className="alert alert-success text-center">
-    ✅ Your email is confirmed. You can now log in.
-  </div>
-)}
+  
 
 
 
