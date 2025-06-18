@@ -76,19 +76,21 @@ export default function LoginPage() {
     }
   };
 
-  useEffect(() => {
-  if (typeof window !== "undefined" && window.location.hash) {
-    const hash = window.location.hash;
+   useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash;
 
-    if (hash.includes("type=signup") || hash.includes("access_token")) {
-      toast.success(" You confirmed your email. Please login now.");
-      window.history.replaceState(null, "", "/auth/login"); // clean URL
+      if (hash.includes("access_token") || hash.includes("type=signup")) {
+        toast.success("Email confirmed! You can now log in.");
+        router.replace("/auth/login");
+      }
+
+      if (hash.includes("error=access_denied")) {
+        toast.error("Email confirmation link is invalid or has expired.");
+        router.replace("/auth/login");
+      }
     }
-
-    if (hash.includes("error=access_denied")) {
-      toast.error(" Email confirmation link is invalid or expired.");    }
-  }
-}, []);
+  }, []);
 
 
 
