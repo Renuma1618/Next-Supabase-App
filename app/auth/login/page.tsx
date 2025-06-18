@@ -76,21 +76,7 @@ export default function LoginPage() {
     }
   };
 
-   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      const hash = window.location.hash;
 
-      if (hash.includes("access_token") || hash.includes("type=signup")) {
-        toast.success("Email confirmed! You can now log in.");
-        router.replace("/auth/login");
-      }
-
-      if (hash.includes("error=access_denied")) {
-        toast.error("Email confirmation link is invalid or has expired.");
-        router.replace("/auth/login");
-      }
-    }
-  }, []);
 
 
 
@@ -131,6 +117,9 @@ export default function LoginPage() {
           Dont have an account? <a href="/auth/register">Register</a>
         </p>
       </div>
+
+  
+
       <Footer />
     </>
   );

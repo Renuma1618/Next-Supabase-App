@@ -54,8 +54,8 @@ export default function RegisterPage() {
       email,
       password,
       options: {
-         emailRedirectTo: "http://localhost:3000/auth/login",
-        data: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`,       
+           data: {
           displayName,
           gender,
           phone,
