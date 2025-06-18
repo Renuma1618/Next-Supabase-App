@@ -2,7 +2,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/SupabaseClient";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { myAppHook } from "@/context/AppUtils";
 import { useRouter } from "next/navigation";
@@ -23,6 +23,7 @@ const formSchema = yup.object().shape({
 export default function LoginPage() {
   const router = useRouter();
   const { isLoggedIn, setIsLoggedIn, setAuthToken } = myAppHook();
+   const [emailConfirmed, setEmailConfirmed] = useState(false); 
 
   const {
     register,
@@ -77,21 +78,26 @@ export default function LoginPage() {
   };
 
   useEffect(() => {
-  if (typeof window !== "undefined" && window.location.hash) {
-    const hash = window.location.hash;
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash;
 
-    if (hash.includes("type=signup") || hash.includes("access_token")) {
-      toast.success(" You confirmed your email. Please login now.");
-      window.history.replaceState(null, "", "/auth/login"); // clean URL
+      if (hash.includes("type=signup") || hash.includes("access_token")) {
+        setEmailConfirmed(true); // ← SET the flag
+        // Don't redirect or replace state
+      }
+
+      if (hash.includes("error=access_denied")) {
+        toast.error("Email confirmation link is invalid or expired.");
+        // Optional: set an error flag if needed
+      }
     }
+  }, []);
 
-    if (hash.includes("error=access_denied")) {
-      toast.error(" Email confirmation link is invalid or expired.");
-      window.history.replaceState(null, "", "/auth/login"); // clean URL
-    }
-  }
-}, []);
-
+  {emailConfirmed && (
+  <div className="alert alert-success text-center">
+    ✅ Your email is confirmed. You can now log in.
+  </div>
+)}
 
 
 
