@@ -1,4 +1,4 @@
-"use client"
+    "use client"
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/SupabaseClient";
@@ -42,12 +42,13 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/auth/dashboard`, // Adjust redirect URL as needed
+        redirectTo: `${window.location.origin}/auth/dashboard`, 
       },
     });
     if (error) {
       toast.error("Error during OAuth sign-in");
     }
+
   };
 
   const onSubmit = async (formdata: UserType) => {
@@ -74,6 +75,25 @@ export default function LoginPage() {
       router.push("/auth/dashboard");
     }
   };
+
+  useEffect(() => {
+  if (typeof window !== "undefined" && window.location.hash) {
+    const hash = window.location.hash;
+
+    if (hash.includes("type=signup") || hash.includes("access_token")) {
+      toast.success(" You confirmed your email. Please login now.");
+      window.history.replaceState(null, "", "/auth/login"); // clean URL
+    }
+
+    if (hash.includes("error=access_denied")) {
+      toast.error(" Email confirmation link is invalid or expired.");
+      window.history.replaceState(null, "", "/auth/login"); // clean URL
+    }
+  }
+}, []);
+
+
+
 
   return (
     <>
