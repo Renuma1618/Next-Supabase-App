@@ -96,11 +96,12 @@ export default function DashboardPage(){
             setIsLoggedIn(true);
             // toast.success("Logged in sucessfully");
             setUserProfile({
+                profile_picture: data.session.user?.user_metadata.profile_picture ?? null,
                 name: data.session.user?.user_metadata.displayName,
                 email: data.session.user?.user_metadata.email,
                 phone: data.session.user?.user_metadata.phone,
                 gender: data.session.user?.user_metadata.gender,
-                });
+            });
 
          localStorage.setItem(
           "user_profile",
