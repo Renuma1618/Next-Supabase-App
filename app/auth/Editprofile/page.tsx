@@ -21,7 +21,6 @@ import { useEffect, useState } from "react";
 
 
 interface EditProfileType {
-  id?: string;
   name?: string;
   email?: string;
   phone?: string;
@@ -44,18 +43,6 @@ export default function EditProfilePage() {
 
   // Custom hook to use Profile of loggedin user
   const { userProfile, setUserProfile } = myAppHook();
-
-  // Ensure UserProfile type includes 'id'
-  // If UserProfile is imported from elsewhere, update it there instead
-  // Example:
-  // interface UserProfile {
-  //   id?: string;
-  //   name?: string;
-  //   email?: string;
-  //   phone?: string;
-  //   gender?: string;
-  //   profile_picture?: string | File | null;
-  // }
 
     // Show previous profile picture on mount
   useEffect(() => {
