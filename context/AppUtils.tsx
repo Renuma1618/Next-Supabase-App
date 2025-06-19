@@ -4,6 +4,8 @@ import loader from "@/components/Loader";
 
 
 interface UserProfile {
+  id?: string;
+  profile_picture: any;
   name?: string;
   email?: string;
   gender?: string;
