@@ -54,7 +54,7 @@ export default function RegisterPage() {
       email,
       password,
       options: {
-          emailRedirectTo: "https://next-supabase-app-rq9n.vercel.app/",       
+          emailRedirectTo: "https://next-supabase-app-rq9n.vercel.app/auth/login",       
            data: {
           displayName,
           gender,
