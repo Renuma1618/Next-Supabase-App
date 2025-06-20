@@ -123,7 +123,7 @@ Create the following essential folders within your project: lib, components, and
   * *Toast Messages*: If messages are not displaying, ensure Toaster is imported and added to your layout.tsx file and toast functions are called correctly.
   * *Image Uploads*: Ensure your Supabase Storage rules allow public read access for the uploaded images if you're directly linking to them, or implement signed URLs for private access. Check your tsconfig.json for any relevant paths or aliases if experiencing issues.
 
-##Additional Features
+## Additional Features
 
 ✅ Email Confirmation and Redirection
 Email Verification: After registration, users receive a confirmation email via Supabase. They must verify their email address before logging in.
