@@ -122,5 +122,22 @@ Create the following essential folders within your project: lib, components, and
   * *Redirections*: Check the useRouter paths in your authentication and context files to ensure correct page navigation.
   * *Toast Messages*: If messages are not displaying, ensure Toaster is imported and added to your layout.tsx file and toast functions are called correctly.
   * *Image Uploads*: Ensure your Supabase Storage rules allow public read access for the uploaded images if you're directly linking to them, or implement signed URLs for private access. Check your tsconfig.json for any relevant paths or aliases if experiencing issues.
+
+✅ Email Confirmation and Redirection
+Email Verification: After registration, users receive a confirmation email via Supabase. They must verify their email address before logging in.
+
+Redirect on Confirmation: Upon successful email confirmation, users are redirected to the login page with a toast notification prompting them to log in.
+
+Supabase Settings:
+
+In Supabase, go to Authentication → Email Templates → enable and customize the confirmation email.
+
+Under Authentication → Settings, ensure “Email Confirmations” is enabled.
+
+✏️ Edit & Delete User Details
+Users can now update their profile details (e.g., name, gender, or email) on the Profile Page (app/auth/profile/page.tsx).
+Also Deleted the Product permenantely.
+
+The updated data is saved to the Supabase user metadata or a dedicated users table, depending on your setup.
 -----
 ## Deploy the Next.js Application in Vercel
