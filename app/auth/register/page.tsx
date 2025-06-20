@@ -67,7 +67,7 @@ export default function RegisterPage() {
       toast.error("Signup Error:"); 
       toast.error(`Registration failed: ${error.message}`);
     } else {
-      toast.success("User registered successfully");
+      toast.success("User registered successfully ! Please check your email to confirm your account.");
       router.push("/auth/login");
     }
   };

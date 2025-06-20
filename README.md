@@ -111,7 +111,7 @@ Create the following essential folders within your project: lib, components, and
 ## Running the Application
 
 1.  *Start the Development Server*: Run npm run dev.
-2.  *Access the Application*: Open your browser and navigate to http://localhost:3000.
+2.  *Access the Application*: Open youra browser and navigate to http://localhost:3000.
 
 ## Troubleshooting
 

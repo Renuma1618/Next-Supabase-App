@@ -62,7 +62,7 @@ export default function LoginPage() {
       if (error.message.toLowerCase().includes("email not confirmed")) {
         toast("Please confirm your email. Check your inbox for the confirmation link.");
       } else {
-        toast.error("Failed to login: " + error.message);
+        toast.error("Failed to login: " );
       }
       return;
     }
