@@ -95,21 +95,26 @@ export default function DashboardPage(){
             localStorage.setItem("access_token", data.session?.access_token);
             setIsLoggedIn(true);
             // toast.success("Logged in sucessfully");
-            setUserProfile({
-                profile_picture: data.session.user?.user_metadata.profile_picture ?? null,
-                name: data.session.user?.user_metadata.displayName,
-                email: data.session.user?.user_metadata.email,
-                phone: data.session.user?.user_metadata.phone,
-                gender: data.session.user?.user_metadata.gender,
-            });
+           setUserProfile({
+          name: data.session.user?.user_metadata.displayName || data.session.user?.user_metadata.name,
+          email: data.session.user?.user_metadata.email,
+          gender: data.session.user?.user_metadata.gender,
+          phone: data.session.user?.user_metadata.phone,
+          profile_picture: data.session.user?.user_metadata.profile_picture,
+          id: data.session?.user.id,
+        });
 
-         localStorage.setItem(
+        //toast.success("User logged in successfully");
+
+        localStorage.setItem(
           "user_profile",
           JSON.stringify({
-            name: data.session.user?.user_metadata.displayName,
+            name: data.session.user?.user_metadata.displayName || data.session.user?.user_metadata.name,
             email: data.session.user?.user_metadata.email,
-            phone: data.session.user?.user_metadata.phone,
             gender: data.session.user?.user_metadata.gender,
+            phone: data.session.user?.user_metadata.phone,
+            profile_picture: data.session.user?.user_metadata.profile_picture,
+            id: data.session?.user.id,
           })
         );
 

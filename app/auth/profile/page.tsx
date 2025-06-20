@@ -25,6 +25,8 @@ export default function ProfilePage() {
             </Link>
             </div>
 
+            
+
           </div>
 
           <div className=" d-flex flex-row justify-content-between align-items-center card p-4 shadow-sm col-sm-6" >
