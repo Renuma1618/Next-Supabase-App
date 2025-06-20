@@ -78,7 +78,7 @@ export default function EditProfilePage() {
     const fileName = `${Date.now()}.${fileExtension}`;
 
     const { error } = await supabase.storage
-      .from("profile-pictures")
+      .from("product-images")
       .upload(fileName, file);
 
     if (error) {
@@ -86,7 +86,7 @@ export default function EditProfilePage() {
       return null;
     }
 
-    return supabase.storage.from("profile-pictures").getPublicUrl(fileName).data
+    return supabase.storage.from("product-images").getPublicUrl(fileName).data
       .publicUrl;
   };
 
