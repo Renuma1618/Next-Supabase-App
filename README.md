@@ -62,8 +62,8 @@ Create the following essential folders within your project: lib, components, and
 
 2.  *Social Authentication (Google & GitHub)*:
 
-      * *Enable in Supabase*: In your Supabase project, go to "Authentication" -\> "Providers" and enable Google and GitHub. You will need to set up OAuth credentials in Google Developer Console and GitHub Developer Settings.
-      * *Implement in Code*: Add onClick functions to buttons to trigger the social sign-in events using the Supabase client.
+      * Enable in Supabase*: In your Supabase project, go to "Authentication" -\> "Providers" and enable Google and GitHub. You will need to set up OAuth credentials in Google Developer Console and GitHub Developer Settings.
+      * Implement in Code*: Add onClick functions to buttons to trigger the social sign-in events using the Supabase client.
 
 3.  *Session Management*:
 
@@ -82,13 +82,13 @@ Create the following essential folders within your project: lib, components, and
 
 2.  **Shared Components (components folder):
 
-      * **Navbar.tsx**: Create a basic navigation bar. Conditionally render navigation links (e.g., "Home", "Login" if logged out; "Dashboard", "Profile" if logged in). Import Navbar into layout.tsx.
-      * **Footer.tsx**: Create a simple footer component.
-      * **Loader.tsx**: Create a loader component for displaying loading states.
+      * Navbar.tsx: Create a basic navigation bar. Conditionally render navigation links (e.g., "Home", "Login" if logged out; "Dashboard", "Profile" if logged in). Import Navbar into layout.tsx.
+      * Footer.tsx: Create a simple footer component.
+      * Loader.tsx: Create a loader component for displaying loading states.
 
 ### Context and Hooks
 
-1.  **context/AppUtils.tsx**: Create a file AppUtils.tsx in the context folder. This context will manage global states like isLoggedIn and AuthToken. Use setAuthToken and setIsLoggedIn states. Import AppUtils into layout.tsx and wrap the children with it. Implement a useEffect hook in AppUtils.tsx to handle session logic, check AuthToken and isLoggedIn states, and redirect users (e.g., if not logged in, redirect from dashboard to login). Import useRouter from next/navigation to handle programmatic navigation.
+1.  context/AppUtils.tsx: Create a file AppUtils.tsx in the context folder. This context will manage global states like isLoggedIn and AuthToken. Use setAuthToken and setIsLoggedIn states. Import AppUtils into layout.tsx and wrap the children with it. Implement a useEffect hook in AppUtils.tsx to handle session logic, check AuthToken and isLoggedIn states, and redirect users (e.g., if not logged in, redirect from dashboard to login). Import useRouter from next/navigation to handle programmatic navigation.
 
 ### Form Validation
 
