@@ -55,10 +55,10 @@ Create the following essential folders within your project: lib, components, and
 
 1.  *Authentication Routes*:
 
-      * **Login Page (app/auth/login/page.tsx): Implement the login form. After successful login, store the tokenValue (session token) in sessionStorage. The application should redirect to the dashboard upon successful login.
-      * **Register Page (app/auth/register/page.tsx): Implement the registration form with validation.
-      * **Profile Page (app/auth/profile/page.tsx): Display and allow updates to user details.
-      * **Dashboard Page (app/auth/ashboard/page.tsx): This is a protected route. If a user is not logged in, they should be redirected to /auth/login.
+      * Login Page (app/auth/login/page.tsx): Implement the login form. After successful login, store the tokenValue (session token) in sessionStorage. The application should redirect to the dashboard upon successful login.
+      * Register Page (app/auth/register/page.tsx): Implement the registration form with validation.
+      * Profile Page (app/auth/profile/page.tsx): Display and allow updates to user details.
+      * Dashboard Page (app/auth/ashboard/page.tsx): This is a protected route. If a user is not logged in, they should be redirected to /auth/login.
 
 2.  *Social Authentication (Google & GitHub)*:
 
