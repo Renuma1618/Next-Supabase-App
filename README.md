@@ -78,9 +78,9 @@ Create the following essential folders within your project: lib, components, and
 
 ### UI Components
 
-1.  **Layout (app/layout.tsx): Remove unnecessary code and change the title of your application. Import Bootstrap for styling. Import and add Toaster from react-hot-toast for displaying notifications. Wrap your children with the AppUtils context (see Context below).
+1.  Layout (app/layout.tsx): Remove unnecessary code and change the title of your application. Import Bootstrap for styling. Import and add Toaster from react-hot-toast for displaying notifications. Wrap your children with the AppUtils context (see Context below).
 
-2.  **Shared Components (components folder):
+2.  Shared Components (components folder):
 
       * Navbar.tsx: Create a basic navigation bar. Conditionally render navigation links (e.g., "Home", "Login" if logged out; "Dashboard", "Profile" if logged in). Import Navbar into layout.tsx.
       * Footer.tsx: Create a simple footer component.
@@ -125,7 +125,7 @@ Create the following essential folders within your project: lib, components, and
 
 ## Additional Features
 
-✅ Email Confirmation and Redirection
+ Email Confirmation and Redirection
 Email Verification: After registration, users receive a confirmation email via Supabase. They must verify their email address before logging in.
 
 Redirect on Confirmation: Upon successful email confirmation, users are redirected to the login page with a toast notification prompting them to log in.
@@ -136,7 +136,7 @@ In Supabase, go to Authentication → Email Templates → enable and customize t
 
 Under Authentication → Settings, ensure “Email Confirmations” is enabled.
 
-✏️ Edit & Delete User Details
+ Edit & Delete User Details
 Users can now update their profile details (e.g., name, gender, or email) on the Profile Page (app/auth/profile/page.tsx).
 Also Deleted the Product permenantely.
 
